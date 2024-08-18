@@ -1,0 +1,22 @@
+<!-- api_app/templates/api_app/api_form.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API Request</title>
+</head>
+<body>
+    <h1>API Request Form</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Enviar</button>
+    </form>
+
+    {% if response_data %}
+        <h2>Resposta da API:</h2>
+        <pre>{{ response_data|safe }}</pre>
+    {% endif %}
+</body>
+</html>
