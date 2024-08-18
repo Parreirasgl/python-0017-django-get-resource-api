@@ -10,13 +10,14 @@
     <h1>API Request Form</h1>
     <form method="post">
         {% csrf_token %}
-        {{ form.as_p }}
+        {{ form.as_p }}  <!-- Renderiza o formulário como parágrafos -->
         <button type="submit">Enviar</button>
     </form>
 
-    {% if response_data %}
+    {% if response_data %}  <!-- Verifica se há dados de resposta para exibir -->
         <h2>Resposta da API:</h2>
-        <pre>{{ response_data|safe }}</pre>
+        <pre>{{ response_data|safe }}</pre> <!-- tag <pre> (preformatted text) é usada para exibir texto exatamente como é fornecido -->
+            <!-- 'saf'e' indicate the content from the variable is safe to be displayed as HTML (special characters can be interpreted as javascript) -->
     {% endif %}
 </body>
 </html>
